@@ -27,7 +27,7 @@ bldc_motor_handle_t bldc_motor_init(void)
 	return handle;
 }
 
-err_code_t bldc_set_config(bldc_motor_handle_t handle, bldc_motor_cfg_t config)
+err_code_t bldc_motor_set_config(bldc_motor_handle_t handle, bldc_motor_cfg_t config)
 {
 	/* Check if handle structure is NULL */
 	if (handle == NULL) 
@@ -42,6 +42,19 @@ err_code_t bldc_set_config(bldc_motor_handle_t handle, bldc_motor_cfg_t config)
 	handle->set_pwm = config.set_pwm;
 	handle->start_pwm = config.start_pwm;
 	handle->stop_pwm = config.stop_pwm;
+
+	return ERR_CODE_SUCCESS;
+}
+
+err_code_t bldc_motor_config(bldc_motor_handle_t handle)
+{
+	/* Check if handle structure is NULL */
+	if (handle == NULL) 
+	{
+		return ERR_CODE_NULL_PTR;
+	}
+
+	/* Nothing to do */
 
 	return ERR_CODE_SUCCESS;
 }

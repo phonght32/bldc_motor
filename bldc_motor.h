@@ -47,7 +47,18 @@ bldc_motor_handle_t bldc_motor_init(void);
  *      - ERR_CODE_SUCCESS: Success.
  *      - Others:           Fail.
  */
-err_code_t bldc_set_config(bldc_motor_handle_t handle, bldc_motor_cfg_t config);
+err_code_t bldc_motor_set_config(bldc_motor_handle_t handle, bldc_motor_cfg_t config);
+
+/*
+ * @brief   Configure BLDC motor to run.
+ *
+ * @param 	handle Handle structure.
+ *
+ * @return
+ *      - ERR_CODE_SUCCESS: Success.
+ *      - Others:           Fail.
+ */
+err_code_t bldc_motor_config(bldc_motor_handle_t handle);
 
 /*
  * @brief   Start BLDC motor.
