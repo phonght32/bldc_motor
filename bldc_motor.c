@@ -12,8 +12,8 @@ typedef struct bldc_motor {
 	float 				duty;			/*!< PWM duty cycle */
 	uint8_t 			is_run;			/*!< Running status */
 	func_set_pwm 		set_pwm;		/*!< Function set PWM */
-	func_start_pwm 		start_pwm;		/*!< Function start PWM */
-	func_stop_pwm 		stop_pwm;		/*!< Function stop PWM */
+	func_start 			start_pwm;		/*!< Function start PWM */
+	func_stop 			stop_pwm;		/*!< Function stop PWM */
 } bldc_motor_t;
 
 bldc_motor_handle_t bldc_motor_init(void)

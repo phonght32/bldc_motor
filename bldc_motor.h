@@ -7,9 +7,9 @@ extern "C" {
 
 #include "err_code.h"
 
-typedef uint8_t (*func_set_pwm)(float duty);
-typedef uint8_t (*func_start_pwm)(void);
-typedef uint8_t (*func_stop_pwm)(void);
+typedef err_code_t (*func_set_pwm)(float duty);
+typedef err_code_t (*func_start)(void);
+typedef err_code_t (*func_stop)(void);
 
 typedef struct bldc_motor* bldc_motor_handle_t;
 
@@ -20,8 +20,8 @@ typedef struct bldc_motor* bldc_motor_handle_t;
 typedef struct {
 	uint16_t 			kv;				/*!< Motor KV */
 	func_set_pwm 		set_pwm;		/*!< Function set PWM */
-	func_start_pwm 		start_pwm;		/*!< Function start PWM */
-	func_stop_pwm 		stop_pwm;		/*!< Function stop PWM */
+	func_start 			start_pwm;		/*!< Function start PWM */
+	func_stop 			stop_pwm;		/*!< Function stop PWM */
 } bldc_motor_cfg_t;
 
 /*
