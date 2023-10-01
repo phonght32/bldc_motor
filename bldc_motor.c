@@ -12,8 +12,8 @@ typedef struct bldc_motor {
 	float 				duty;			/*!< PWM duty cycle */
 	uint8_t 			is_run;			/*!< Running status */
 	func_set_pwm 		set_pwm;		/*!< Function set PWM */
-	func_start 			start_pwm;		/*!< Function start PWM */
-	func_stop 			stop_pwm;		/*!< Function stop PWM */
+	func_start 			start;			/*!< Function start PWM */
+	func_stop 			stop;			/*!< Function stop PWM */
 } bldc_motor_t;
 
 bldc_motor_handle_t bldc_motor_init(void)
@@ -40,8 +40,8 @@ err_code_t bldc_motor_set_config(bldc_motor_handle_t handle, bldc_motor_cfg_t co
 	handle->duty = 0.0;
 	handle->is_run = 0;
 	handle->set_pwm = config.set_pwm;
-	handle->start_pwm = config.start_pwm;
-	handle->stop_pwm = config.stop_pwm;
+	handle->start = config.start;
+	handle->stop = config.stop;
 
 	return ERR_CODE_SUCCESS;
 }
@@ -67,7 +67,7 @@ err_code_t bldc_motor_start(bldc_motor_handle_t handle)
 		return ERR_CODE_NULL_PTR;
 	}
 
-	handle->start_pwm();
+	handle->start();
 	handle->is_run = 1;
 
 	return ERR_CODE_SUCCESS;
@@ -81,7 +81,7 @@ err_code_t bldc_motor_stop(bldc_motor_handle_t handle)
 		return ERR_CODE_NULL_PTR;
 	}
 
-	handle->stop_pwm();
+	handle->stop();
 	handle->is_run = 0;
 
 	return ERR_CODE_SUCCESS;

@@ -20,8 +20,8 @@ typedef struct bldc_motor* bldc_motor_handle_t;
 typedef struct {
 	uint16_t 			kv;				/*!< Motor KV */
 	func_set_pwm 		set_pwm;		/*!< Function set PWM */
-	func_start 			start_pwm;		/*!< Function start PWM */
-	func_stop 			stop_pwm;		/*!< Function stop PWM */
+	func_start 			start;			/*!< Function start PWM */
+	func_stop 			stop;			/*!< Function stop PWM */
 } bldc_motor_cfg_t;
 
 /*
