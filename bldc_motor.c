@@ -18,7 +18,7 @@ typedef struct bldc_motor {
 
 bldc_motor_handle_t bldc_motor_init(void)
 {
-	bldc_motor_handle_t handle = calloc(1, sizeof(bldc_motor_handle_t));
+	bldc_motor_handle_t handle = calloc(1, sizeof(bldc_motor_t));
 	if (handle == NULL) 
 	{
 		return NULL;
